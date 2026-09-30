@@ -152,8 +152,10 @@ int sumarEnteros(int num1, int num2)
 
 void cambiarVariables(int *p, int *q)
 {
-    *p = &num2;
-    *q = &num1;
+    int temporal;
+    temporal = *p;
+    *p = *q;
+    *q = temporal;
 
     return;
 }
@@ -161,22 +163,63 @@ int main(void)
 {
     int num1, num2, suma, multiplicacion;
 
-    printf("Ingresa un numero entero (num1):");
-    scanf("%d\n", &num1);
-    printf("Ingresa otro numero entero (num2):");
-    scanf("%d\n", &num2);
+    printf("Ingresa un numero entero (num1): ");
+    scanf("%d", &num1);
+    printf("Ingresa otro numero entero (num2): ");
+    scanf("%d", &num2);
 
     suma = sumarEnteros(num1, num2);
     multiplicacion = multiplicacionEnteros(num1, num2);
-
+    printf("\nAntes de cambiar: num1 = %d | num2 = %d\n", num1, num2);
     if(num1 > num2)
     {
         cambiarVariables(&num1, &num2);
     }
 
     printf("La suma de los 2 numeros es: %d\n", suma);
-    printf("La multiplicacion de los 2 numeros es: %d", multiplicacion);
-    printf("Cambio de las variables, num 1 = %d | num2 = %d", num1, num2);
+    printf("La multiplicacion de los 2 numeros es: %d\n", multiplicacion);
+    printf("Cambio de las variables: num1 = %d | num2 = %d\n", num1, num2);
     
     return 0;
+} 
+/*
+#include <stdio.h>
+
+void ordenar(int *a, int *b)
+{
+    if (a == NULL || b == NULL)return;
+    if(a == b) return;
+    if (*a > *b) // Esto cambia las variables del main
+    {   
+        int temporal = *a;
+        *a = *b;
+        *b = temporal;
+    }
+    
 }
+void operacionesMatematicas(int a, int b, int *suma, int *multiplicacion)
+{
+    if(suma == NULL || multiplicacion == NULL) return;
+    *suma = a + b;
+    *multiplicacion= a * b;
+}
+int main(void)
+{
+    int a, b;
+
+    printf("Ingresa un numero:\n");
+    scanf("%d", &a);
+    printf("Ingresa otro numero entero:\n");
+    scanf("%d", &b);
+
+    printf("Antes de ordenar: a = %d, b = %d\n", a, b);
+    ordenar(&a,&b);
+    printf("Despues de ordenar: a = %d, b = %d\n", a ,b);
+
+    int suma, multiplicacion;
+    operacionesMatematicas(a,b,&suma,&multiplicacion);
+    printf("Suma = %d\n", suma);
+    printf("Multiplicacion = %d\n", multiplicacion);
+
+    return 0;
+} */
