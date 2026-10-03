@@ -17,9 +17,10 @@ int main(void)
         exit(1);
     }
 
-    printf("\nIngresa los numeros que quieras guardar como cadena suponiendo que tambien cuente el 0: ");
-    for(i = 0; i != x; i++)
+    printf("Ingresa los numeros que quieras guardar\n");
+    for(i = 0; i < x; i++)
     {
+        printf("[%d] = ", i);
         scanf("%d", &numeros[i]);
     }
 
@@ -40,5 +41,6 @@ int sumaCadena(int numeros[], int x)
         suma += numeros[i];
     }
 
+    suma = suma - 1;
     return suma;
 }

@@ -137,7 +137,7 @@ Crea unn programa que te pida 2 numeros y que te arroge 2 resultados
 2- Se multiplicann ambos numeros
 y por ultimo si el primer numero que ingreso por el teclade es mayor que el segundo
 se intercambien posicioes en variables
-*/
+
 
 #include <stdio.h>
 
@@ -182,7 +182,7 @@ int main(void)
     
     return 0;
 } 
-/*
+
 #include <stdio.h>
 
 void ordenar(int *a, int *b)
@@ -223,3 +223,73 @@ int main(void)
 
     return 0;
 } */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int n, i;
+
+    printf("Cuantos enteros quieres guardar:\n");
+    scanf("%d", &n);
+
+    // Salimos si n es menor o igual a 0
+    if(n <= 0)
+    {
+        printf("N debe ser mayor a 0\n");
+        return 0;
+    }
+    // Reservamos n enteros
+    int *arr = (int *)malloc(n * sizeof(int));
+
+    //Salimos del programa si no se cumple
+    if(arr == NULL)
+    {
+        printf("Error, malloc fallo\n");
+        return 0;
+    }
+
+    // Llenamos el arreglo con un for
+    for(i = 0; i < n; i++)
+    {
+        // Aqui funciona como un arreglo normal aunque sea memoria dinamica
+        printf("arr[%d] = ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    printf("\nAhora vamos a crecer el arrglo en 2 elementos, usando la funcion realloc\n");
+    int nuevoNum = n + 2;
+
+    int *temp = (int *)realloc(arr, nuevoNum *sizeof(int));
+    if(temp == NULL)
+    {
+        printf("Error, realloc fallo pero el arrglo original sigue valido\n");
+        free(arr);
+        arr == NULL;
+        return 0;
+    }
+    // Si temp no es NULL, asigno arr = temp
+    arr = temp;
+
+    for(i = n; i < nuevoNum; i++)
+    {
+        // El espacio nuevo no viene en 0
+        printf("arr[%d] (nuevo) = ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    printf("\n Arreglo final:\n");
+    for(i = 0; i < nuevoNum; i++)
+    {
+        printf("arr[%d] = %d\n",i , arr[i]);
+    }
+
+    printf("\n");
+    //libero memoria con free
+    free(arr);
+    arr == NULL;
+    
+
+    return 0;
+}
