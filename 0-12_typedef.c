@@ -40,24 +40,38 @@ int main(void)
     printf("El modulo es: %f\n", nroCom.modulo);
 
     return 0;
+} 
+
+
+/*
+#include <stdio.h>
+
+typedef char barajaEspaniola[15];
+
+int main(void)
+{
+    barajaEspaniola p[4] = {"oro","espada","copas", "bastos"};
+    printf("%s", p[0]);
+
+    return 0;
 } */
 
 #include <stdio.h>
 #include <math.h>
 
-struct complejo{
+typedef struct complejo{
     float p_real;
     float p_imaginaria;
     float modulo;
-};
+}nroComplejo;
 
 //puede tener 2 apodos
-typedef struct complejo nroComplejo;
+//typedef struct complejo nroComplejo;
 
 int main(){
     //Crea una variable llamada nroCom que es de tipo struct complejo
-    //nroComplejo nroCom
-    struct complejo nroCom;
+    nroComplejo nroCom;
+   // struct complejo nroCom;
     printf("Ingrese la parte real: ");
     scanf("%f", &nroCom.p_real);
     printf("ingrese la parte imaginaria: ");
@@ -67,4 +81,4 @@ int main(){
     nroCom.modulo = sqrt(nroCom.p_real * (nroCom.p_real + nroCom.p_imaginaria * nroCom.p_imaginaria));
     printf("\nEl modulo es: %f",nroCom.modulo);
     return 0;
-}
+} 

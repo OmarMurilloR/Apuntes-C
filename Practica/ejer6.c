@@ -27,25 +27,34 @@ int main(void)
    printf("Este es el orden del arreglo:\n");
    for(i = 0; i < n; i++)
    {
-        printf("num[%d] = %d", i, ptr[i]);
+        printf("num[%d] = %d\n", i, ptr[i]);
    }
     
 
    printf("Despues de invertir el orden:\n");
-   for(i = 0; i < n; i++)
+   invertirOrden(n, ptr);
 
     return 0;
 }
 
-void invertirOrden(int n,int ptr[])
+void invertirOrden(int n,int *ptr)
 {
-    int *inicio = ptr[0];
-    int *fin = inicio + n - 1;
+    int *inicio = ptr;
+    int *fin = ptr + n - 1;
+    int temporal;
 
    while(*inicio < *fin) 
    {
-
-    
+        temporal = *inicio;
+        *inicio = *fin;
+        *fin = temporal;
+        *inicio++;
+        *fin--;
+   }
+   
+   for(int i = 0; i < n; i++)
+   {
+        printf("num[%i] = %d\n", i, ptr[i]);
    }
 
     return;
