@@ -31,7 +31,7 @@ void cambioVar(int *x, int *y)
     *x = *y;
     *y = temporal;
 
-    /* Se usan uncicamente apuntadores para cambiar las variables
+    /* Se usan unicamente apuntadores para cambiar las variables
     *x = *x + *y;
     *y = *x - *y;
     *x = *x - *y;

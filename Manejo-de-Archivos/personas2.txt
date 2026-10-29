@@ -1,0 +1,3 @@
+Miguel 21 Estatura: 1.70
+Jose 20 Estatura: 1.84
+Gustavo 20 Estatura: 1.76

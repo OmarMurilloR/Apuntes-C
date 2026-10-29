@@ -1,0 +1,3 @@
+Nombre: Hector | Edad: 19
+Nombre: Diego | Edad: 20
+Nombre: Carlos | Edad: 22
